@@ -4,8 +4,8 @@ import (
 	"log"
 	"os"
 
-	influxdb "github.com/mikeewhite/octopus-energy-dashboard/influxdb"
-	octopusenergy "github.com/mikeewhite/octopus-energy-dashboard/octopusenergy"
+	influxdb "github.com/mikeewhite/octopus-energy-dashboard/pkg/influxdb"
+	octopusenergy "github.com/mikeewhite/octopus-energy-dashboard/pkg/octopusenergy"
 
 	"github.com/joho/godotenv"
 )
@@ -50,7 +50,6 @@ func main() {
 	// TODO - consider injecting influx client into octopus energy package so that it can record the consumption itself (using interfaces)
 	influxDBClient.RecordConsumption(consumption)
 
-	// TODO - Push data to InfluxDB
 	// TODO - Create grafana board to visualize data
 
 	// TODO - Use docker volumes so that data is persisted

@@ -6,7 +6,7 @@ import (
 	influxdb2 "github.com/influxdata/influxdb-client-go/v2"
 	"github.com/influxdata/influxdb-client-go/v2/domain"
 
-	octopusenergy "github.com/mikeewhite/octopus-energy-dashboard/octopusenergy"
+	octopusenergy "github.com/mikeewhite/octopus-energy-dashboard/pkg/octopusenergy"
 )
 
 // TODO - These should be set via config
