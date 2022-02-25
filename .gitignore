@@ -16,3 +16,9 @@
 
 .env
 
+# Exclude grafana data but include provisioned config - see https://grafana.com/tutorials/provision-dashboards-and-data-sources/
+grafana/alerting
+grafana/csv
+grafana/plugins
+grafana/png
+grafana/grafana.db

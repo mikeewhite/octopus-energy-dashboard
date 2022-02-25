@@ -1,0 +1,16 @@
+apiVersion: 1
+
+datasources:
+  - name: InfluxDB-InfluxQL
+    type: influxdb
+    access: proxy
+    basicAuth: false
+    database: consumption
+    uid: jZEHV2fnz
+    url: http://influxdb:8086
+    user: ${INFLUXDB_USERNAME}
+    password: ${INFLUXDB_TOKEN}
+    jsonData:
+      httpHeaderName1: Authorization
+    secureJsonData:
+      httpHeaderValue1: Token ${INFLUXDB_TOKEN}
