@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/mikeewhite/octopus-energy-dashboard/pkg/config"
 	"github.com/pkg/errors"
 )
 
@@ -21,14 +22,14 @@ type Client struct {
 }
 
 // New creates a new client
-func New(apiKey, electricityMeterMPAN, electricityMeterSerialNumber string) *Client {
+func New(cfg config.OctopusEnergy) *Client {
 	httpClient := &http.Client{
 		Timeout: 5 * time.Second,
 	}
 	return &Client{
-		apiKey:                       apiKey,
-		electricityMeterMPAN:         electricityMeterMPAN,
-		electricityMeterSerialNumber: electricityMeterSerialNumber,
+		apiKey:                       cfg.APIKey,
+		electricityMeterMPAN:         cfg.ElectricityMeterMPAN,
+		electricityMeterSerialNumber: cfg.ElectricityMeterSerialNo,
 		httpClient:                   httpClient,
 	}
 }
