@@ -1,18 +1,20 @@
 # 🐙 Octopus Energy Dashboard
 
-Prototype dashboard for viewing electricity usage consumed from the [Octopus Energy API](https://developer.octopus.energy/docs/api/#consumption) using Golang, InfluxDB, and Grafana.
+Prototype dashboard for viewing electricity usage consumed from the [Octopus Energy API](https://developer.octopus.energy/docs/api/#consumption) using Golang (for data collection), InfluxDB (for data storage), and Grafana (for visualization).
 
 ## Usage
 1. Create a `.env` file in the root directory with the following content:
 ```bash
+# Octopus energy config (get your values from https://octopus.energy/dashboard/developer/)
 OCTOPUS_ENERGY_API_KEY=<YOUR-API-KEY>
 ELECTRICITY_METER_MPAN=<YOUR-MPAN-NUMBER>
 ELECTRICITY_METER_SERIAL_NUMBER=<YOUR-SERIAL-NUMBER>
+
+# InfluxDB config
 INFLUXDB_USERNAME=admin
 INFLUXDB_PASSWORD=admin1234
-INFLUXDB_TOKEN=<YOUR-INFLUXDB-TOKEN>
+INFLUXDB_TOKEN=O-mfkVnkRYlueeyffw8q0T_K2Cf4TJMtFGlZaZoFxG-v80ZhvWSGZyJwMaRrIAIHWtA6pZ_bDQCwTvApccFcVw==
 ```
-> You can get these details from https://octopus.energy/dashboard/developer/
 
 2. Start the dashboard with:
 ```bash
