@@ -30,9 +30,10 @@ type InfluxDB struct {
 
 // New TODO
 func New() *Config {
+	// attempt to load data directly from .env file when running locally
 	err := godotenv.Load()
 	if err != nil {
-		panic(fmt.Sprintf("error loading .env file: %s", err))
+		fmt.Println(fmt.Sprintf("failed to find .env file: %s", err))
 	}
 
 	return &Config{
@@ -45,7 +46,7 @@ func New() *Config {
 			BucketName: "consumption",
 			OrgName:    "energy",
 			Token:      resolveEnvVar("INFLUXDB_TOKEN"),
-			URL:        "http://localhost:8086",
+			URL:        "http://influxdb:8086",
 		},
 	}
 }

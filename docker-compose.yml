@@ -1,5 +1,18 @@
 version: "3.9"
 services:
+  data-collector:
+    build:
+      context: .
+      args:
+        - OCTOPUS_ENERGY_API_KEY
+        - ELECTRICITY_METER_MPAN
+        - ELECTRICITY_METER_SERIAL_NUMBER
+        - INFLUXDB_USERNAME
+        - INFLUXDB_PASSWORD
+        - INFLUXDB_TOKEN
+    depends_on:
+      - influxdb
+
   influxdb:
     image: influxdb:2.1.1
     environment:
@@ -12,10 +25,9 @@ services:
     ports:
       - "8086:8086"
 
-  # NOTE - when setting up the datasource you need to use 'http://influxdb:8086' as the URL
   grafana:
     image: grafana/grafana
-    # Pass through environment variables from host machine to docker container (as they are used in the provisioned datasources)
+    # Pass through environment variables from host machine to docker container (as they are used in the provisioned datasources/dashboards)
     environment:
       INFLUXDB_USERNAME:
       INFLUXDB_PASSWORD:

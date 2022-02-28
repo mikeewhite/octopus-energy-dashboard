@@ -1,0 +1,10 @@
+# Ignore all files
+*
+
+# Include Go code
+!main.go
+!pkg
+!go.mod
+!go.sum
+
+!crontab
